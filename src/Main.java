@@ -18,6 +18,9 @@ public class Main {
             System.out.println("NEW COL: " +col0);
 
             if(col0 == filldownarray[0].length){
+
+                System.out.println( "COORD; 2,4 " + filldownarray[1][1]);
+
                 return filldownarray;
             }
 
@@ -43,7 +46,6 @@ public class Main {
         int stepnum = 1;
 
         fillrightarray[row0][col0] = stepsize;
-
         System.out.println( "STEPSIZE: " +stepsize+ " NUM: " +fillrightarray[row0][col0]);
 
         row0 = -1;
@@ -55,6 +57,8 @@ public class Main {
             System.out.println("NEW ROW: " +row0);
 
             if(row0 == fillrightarray.length){
+                System.out.println( "COORD; 2,4 " + fillrightarray[0][1]);
+
                 return fillrightarray;
             }
 
@@ -71,6 +75,7 @@ public class Main {
             }
         }
 
+            System.out.println( "COORD; 2,4 " + fillrightarray[2][4]);
 
         return fillrightarray;
 
@@ -133,7 +138,50 @@ public class Main {
                 */
 
 
-    public static void main(String args[]) {
+
+
+    public static int getRowSum(int[][] enteredarray, int row) {
+
+        int sum = 0;
+        int col0 = 0;
+
+        while(col0 < enteredarray[0].length) {
+
+            sum = enteredarray[row][col0] + sum;
+            col0++;
+        }
+
+        System.out.println( "SUM OF ROW 0: " +sum);
+
+        return sum;
+    }
+
+
+    public static int getColSum(int[][] enteredarray, int col) {
+
+        int sum = 0;
+        int row0 = 0;
+
+        while(row0 < enteredarray.length) {
+
+            sum = enteredarray[row0][col] + sum;
+            row0++;
+        }
+
+        System.out.println( "SUM OF col 0: " +sum);
+
+        return sum;
+
+
+
+
+    }
+
+
+
+
+
+        public static void main(String args[]) {
         System.out.println("TEST");
         int[][] filldownarray = new int[5][8];
 
@@ -146,8 +194,11 @@ public class Main {
 
         System.out.println("TEST 124");
 
-
         fillright(fillrightarray, 2);
+
+
+            getRowSum(fillrightarray, 0);
+            getColSum(filldownarray, 0);
 
         System.out.println("TEST 126");
         //  printarray(filldownarray);
